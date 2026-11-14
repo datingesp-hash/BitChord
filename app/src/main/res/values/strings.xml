@@ -1332,4 +1332,10 @@
     <string name="diwali_title">BitChord wishes you a Happy Diwali</string>
     <string name="diwali_subtitle">May this festival of lights fill your home with joy and your days with music.</string>
     <string name="diwali_cta">Let\'s Celebrate</string>
+    <!-- NFC handoff to a DLNA speaker -->
+    <string name="nfc_handoff_moved">Playing on %1$s</string>
+    <string name="nfc_handoff_back_here">Back on this phone</string>
+    <string name="nfc_handoff_not_found">Couldn\'t find %1$s on the Wi-Fi</string>
+    <string name="nfc_handoff_nothing_playing">Nothing is playing to move</string>
+    <string name="nfc_handoff_bad_tag">This tag isn\'t a BitChord speaker tag</string>
 </resources>

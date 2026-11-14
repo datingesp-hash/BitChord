@@ -1429,4 +1429,10 @@
     <string name="bit_perfect_status_inexact">%1$s · no exacto: esta fuente no es PCM sin pérdida</string>
     <string name="bit_perfect_status_waiting">Esperando una pista sin pérdida en una salida compatible</string>
     <string name="bit_perfect_status_unavailable">No disponible para esta pista (%1$s)</string>
+    <!-- NFC handoff to a DLNA speaker -->
+    <string name="nfc_handoff_moved">Sonando en %1$s</string>
+    <string name="nfc_handoff_back_here">De vuelta en el móvil</string>
+    <string name="nfc_handoff_not_found">No se encuentra %1$s en la wifi</string>
+    <string name="nfc_handoff_nothing_playing">No hay nada sonando que pasar</string>
+    <string name="nfc_handoff_bad_tag">Esta etiqueta no es de un altavoz de BitChord</string>
 </resources>
