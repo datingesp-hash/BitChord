@@ -275,6 +275,32 @@
           swap the home-screen icon by enabling one alias and disabling the others
           (see AppIcon). Exactly one is enabled at a time; Default is the shipped one.
         -->
+        <!--
+          NFC handoff: a tag holding bitchord://speaker?name=… moves what is
+          playing to that DLNA speaker, and back on a second tap. NDEF_DISCOVERED
+          is what Android sends for a tag; VIEW lets the same URI work from a
+          shortcut or an automation app. No window: see NfcHandoffActivity.
+        -->
+        <activity
+            android:name=".playback.dlna.NfcHandoffActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="bitchord" android:host="speaker" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="bitchord" android:host="speaker" />
+            </intent-filter>
+        </activity>
+
         <activity-alias
             android:name=".LauncherDefault"
             android:enabled="true"

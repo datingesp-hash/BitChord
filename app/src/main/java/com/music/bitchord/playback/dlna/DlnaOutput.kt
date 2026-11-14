@@ -64,6 +64,20 @@ object DlnaOutput {
         speaker?.start(device)
     }
 
+    /**
+     * Make [device] the speaker even if the drawer has not listed it yet (an
+     * NFC tag found it by name). Main thread. Whether it took the music: it
+     * does not when nothing is loaded on the phone or the service is gone.
+     */
+    internal fun select(device: DlnaDevice): Boolean {
+        _state.update { state ->
+            state.copy(devices = (state.devices.filterNot { it.id == device.id } + device).sortedBy { it.name.lowercase() })
+        }
+        val speaker = speaker ?: return false
+        speaker.start(device)
+        return speaker.active && speaker.device?.id == device.id
+    }
+
     /** Take the music back onto this phone; [resumeHere] keeps it playing. Main thread. */
     fun leave(resumeHere: Boolean) {
         speaker?.stop(resumeHere)
