@@ -495,6 +495,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
+     * Look for network speakers as soon as the app is on screen, so the output
+     * drawer already lists them when it opens instead of searching then.
+     */
+    override fun onStart() {
+        super.onStart()
+        com.music.bitchord.playback.dlna.DlnaOutput.refresh()
+    }
+
+    /**
      * The other half of the relay. This activity is `singleTask`, so once it is
      * running a second tap on the widget does not rebuild anything — it arrives
      * here, and [onCreate] never runs again.
